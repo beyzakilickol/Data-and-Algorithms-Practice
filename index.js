@@ -106,3 +106,19 @@ function isFizzBuzz(number){
 }
 console.log(isFizzBuzz(32))
 //-------------------------------------------------------
+
+function orderString(string){
+  let orderedarr = []
+  let arr = string.split(' ')
+  console.log(arr)
+  for(var i = 1;i<10;i++){
+    arr.forEach(function(each){
+        if(each.includes(i)){
+           orderedarr.push(each)
+        }
+    })
+  }
+  console.log(orderedarr.join(' '))
+   return orderedarr.join(' ')
+}
+orderString("4of Fo1r pe6ople g3ood th5e the2")
