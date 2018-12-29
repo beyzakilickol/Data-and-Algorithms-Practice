@@ -122,3 +122,16 @@ function orderString(string){
    return orderedarr.join(' ')
 }
 orderString("4of Fo1r pe6ople g3ood th5e the2")
+//------------------------------------------------
+let friends = ["Ryan", ,"Mark","Jimmy", "123", "4", "Cool Man"]
+function pickMyFriends(arr){
+  let filteredarr= arr.filter((each)=>{
+     if(each.length==4 && isNaN(each)==true){
+       return each
+     }
+
+  })
+  console.log(filteredarr)
+  return filteredarr
+}
+pickMyFriends(friends)
