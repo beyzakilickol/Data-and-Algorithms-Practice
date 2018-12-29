@@ -135,3 +135,30 @@ function pickMyFriends(arr){
   return filteredarr
 }
 pickMyFriends(friends)
+//---------------------------------------------------
+function rowSumOddNumbers(rowNo){
+
+let counter = (rowNo-1)*2
+let counter2 = []
+for(var i=1;i<rowNo;i++){
+counter2.push(counter)
+counter = counter -2
+
+console.log(counter2)
+
+}
+let firstnoinrow = counter2.reduce((a,b)=>a+b,0)+1
+console.log(firstnoinrow)
+
+let arr = []
+
+for(var i=1;i<rowNo+1;i++){
+
+arr.push(firstnoinrow)
+firstnoinrow += 2
+}
+console.log(arr)
+console.log(arr.reduce((a,b)=>a+b,0))
+return arr.reduce((a,b)=>a+b,0)
+}
+rowSumOddNumbers(5)
