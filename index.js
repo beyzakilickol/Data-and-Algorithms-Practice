@@ -135,7 +135,7 @@ function pickMyFriends(arr){
   return filteredarr
 }
 pickMyFriends(friends)
-//---------------------------------------------------
+//----------------------odd number triangle  / sum of any row -----------------------------
 function rowSumOddNumbers(rowNo){
 
 let counter = (rowNo-1)*2
@@ -162,3 +162,61 @@ console.log(arr.reduce((a,b)=>a+b,0))
 return arr.reduce((a,b)=>a+b,0)
 }
 rowSumOddNumbers(5)
+//--------------------------------------------
+//likes [] // must be "no one likes this"
+//likes ["Peter"] // must be "Peter likes this"
+//likes ["Jacob", "Alex"] // must be "Jacob and Alex like this"
+//likes ["Max", "John", "Mark"] // must be "Max, John and Mark like this"
+//likes ["Alex", "Jacob", "Mark", "Max"] // must be "Alex, Jacob and 2 others like this"
+function likes(names) {
+ if(names.length == 0){
+ return 'no one likes this'} else if(names.length == 1){
+ return names[0] + ' likes this'
+ } else if(names.length == 2){return names[0] + ' and '+ names[1]+' like this'}
+ else if(names.length == 3){
+ return names[0] + ', '+ names[1]+' and '+names[2]+ ' like this'
+ } else{
+return names[0]+ ', ' + names[1]+' and '+names.splice(2).length + ' others like this'
+ }
+}
+//------------------------------------
+//list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])
+// returns 'Bart, Lisa & Maggie'
+
+//list([ {name: 'Bart'}, {name: 'Lisa'} ])
+// returns 'Bart & Lisa'
+
+//list([ {name: 'Bart'} ])
+// returns 'Bart'
+
+//list([])
+// returns ''
+function list(names){
+    if(names.length==1){return names[0].name} else if(names.length==0){return ''}
+   let namesarray = names.slice(0,names.length-1).map((each)=>{return each.name})
+  return namesarray.slice(0,names.length-1).join(', ') +' & ' +names[names.length-1].name
+}
+//-----------------------------------
+//Given an array, find the int that appears an odd number of times.
+
+//There will always be only one integer that appears an odd number of times.
+function findOdd(A) {
+ let arr = []
+ for(var j =0;j<A.length;j++){
+   arr= []
+   arr.push(A[j])
+ for(var i=0;i<A.length;i++){
+   if(arr.includes(A[i])==true){
+   arr.push(A[i])}
+
+
+ }
+
+ if(arr.length % 2 ==0){
+   console.log(A[j])
+   return A[j]
+ }
+}
+}
+findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
+//---------------------------------------------------------
