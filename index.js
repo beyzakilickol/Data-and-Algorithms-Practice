@@ -220,3 +220,30 @@ function findOdd(A) {
 }
 findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
 //---------------------------------------------------------
+//In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one side of the DNA (string, except for Haskell); you need to get the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).
+function DNAStrand(dna){
+  let corresponding = ""
+  for(var i = 0;i<dna.length;i++){
+   if(dna[i]=='A'){corresponding+='T'}
+   else if(dna[i]=='T'){corresponding+='A'}
+   else if(dna[i]=='G'){corresponding+='C'}
+   else if(dna[i]=='C'){corresponding+='G'}
+  }
+  return corresponding
+}
+//-----------------------------------------------------------
+//adding last 3 numbers in sequence given n times and adding them at the end of the array
+
+function tribonacci(signature,n){
+ if(n<3){return signature.slice(n-1,n)}
+  let count = 0
+  for(var j =1;j<n-2;j++){
+     count=0
+ for(var i=signature.length-1;i>signature.length-4;i--){
+    count+=signature[i]
+ }
+ signature.push(count)
+ }
+ return signature
+}
+tribonacci([1,0,0],10)//[1,0,0,1,1,2,4,7,13,24]
