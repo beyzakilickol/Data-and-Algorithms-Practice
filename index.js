@@ -176,7 +176,7 @@ function likes(names) {
  else if(names.length == 3){
  return names[0] + ', '+ names[1]+' and '+names[2]+ ' like this'
  } else{
-return names[0]+ ', ' + names[1]+' and '+names.splice(2).length + ' others like this'
+return names[0]+ ', ' + names[1]+' and '+names.slice(2).length + ' others like this'
  }
 }
 //------------------------------------
@@ -247,3 +247,81 @@ function tribonacci(signature,n){
  return signature
 }
 tribonacci([1,0,0],10)//[1,0,0,1,1,2,4,7,13,24]
+//---------------------------------------------------
+//Let P be the Principal = 1000.00
+//  Let I be the Interest Rate = 0.05
+//  Let T be the Tax Rate = 0.18
+//  Let D be the Desired Sum = 1100.00
+
+
+//After 1st Year -->
+//  P = 1041.00
+//After 2nd Year -->
+//  P = 1083.86
+//After 3rd Year -->
+//  P = 1128.30
+
+let years =0
+function calculateYears(principal, interest, tax, desired) {
+if(principal==desired){return 0}
+
+   let sum=principal
+   let taxamount=sum*interest*tax
+   sum=sum+(sum*interest)-taxamount
+  years++
+   if(sum<desired){return calculateYears(sum,interest,tax,desired)}
+   else{ return years}
+}
+calculateYears(1000,0.01625,0.18,1200)
+//-------------------------------------
+// In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+//
+// The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+//
+// Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm.
+//
+// You have to write a function printer_error which given a string will output the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+//
+// The string has a length greater or equal to one and contains only letters from ato z.
+var s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
+function printerError(s) {
+    let errorArr= s.match(/[n-z]/g)
+    console.log(errorArr)
+    return errorArr.length+'/'+s.length
+}
+printerError(s)
+//---------------------------------------------------------------------
+// For building the encrypted string:
+// Take every 2nd char from the string, then the other chars, that are not every 2nd char, and concat them as new String.
+// Do this n times!
+//
+// Examples:
+//
+// "This is a test!", 1 -> "hsi  etTi sats!"
+// "This is a test!", 2 -> "hsi  etTi sats!" -> "s eT ashi tist!"
+// Write two methods:
+function encrypt(text, n) {
+  let newString=''
+  if(n<=0){return text}
+
+  for(var i=1;i<text.length;i+=2){
+    newString +=text[i]
+  }
+  for(var j=0;j<text.length;j+=2){
+    newString +=text[j]
+  }
+  if(n>0){return encrypt(newString,n-1)}
+  return newString
+}
+//--------------------------check if number is prime-------------------------------------
+
+function isPrime(num) {
+  if(num<2){return num + ' is not prime'}
+  else if(num==2){return num + ' is prime'}
+  for(var i =2;i<num;i++){
+   if(num % i==0){return num + ' is not prime'}
+   else {return num + ' is prime'}
+}
+}
+console.log(isPrime(-5))
+//---------------------------------------------------------
