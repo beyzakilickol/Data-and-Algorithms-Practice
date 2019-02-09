@@ -19,10 +19,10 @@ var result = ''
  }
  for(var i = 0; i< arr.length; i++){
    if(result == "odd" && arr[i] % 2 != 0){
-    console.log(arr.indexOf(arr[i]) + 1)
+    //console.log(arr.indexOf(arr[i]) + 1)
   }
   else if(result == "even" && arr[i] % 2 == 0){
-    console.log(arr.indexOf(arr[i]) + 1)
+    //console.log(arr.indexOf(arr[i]) + 1)
  }
  }
  //-------------------String to camelcase and combined------------------------------------
@@ -30,14 +30,14 @@ let str = "The-stealth-warrior" //Output: TheStealthWarrior
 let capitalizedArr = []
  function toCamelCase(str){
  if(str.includes('-')==true){
-   console.log(str.split('-'))
+   //console.log(str.split('-'))
  let arr = str.split('-')
  capitalizedArr.push(arr[0])
  for(var i=1;i<arr.length;i++){
    capitalizedArr.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1))
  }
 
- console.log(capitalizedArr.join(''))
+ //console.log(capitalizedArr.join(''))
 } else if(str.includes('_')==true){
 let arr = str.split('_')
 capitalizedArr.push(arr[0])
@@ -45,7 +45,7 @@ for(var i=1;i<arr.length;i++){
   capitalizedArr.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1))
 }
 
-console.log(capitalizedArr.join(''))
+//console.log(capitalizedArr.join(''))
 }
 }
 toCamelCase(str)
@@ -77,7 +77,7 @@ for(var i = 0; i<arry.length;i++){
   }
 }
 let newArry = arry.slice(0,index[0]).concat(arry.slice(index[0]+1))
-console.log(newArry)
+//console.log(newArry)
 //-----------------------------Palindrome----------------------------
 let string = "emre"
 function isPalindrome(string){
@@ -90,7 +90,7 @@ if(string == reversedstring){
   return false
 }
 }
-console.log(isPalindrome(string))
+//console.log(isPalindrome(string))
 //--------------------------------FizzBuzz---------------------------
 function isFizzBuzz(number){
   if(number % 15 ==0){
@@ -104,13 +104,13 @@ function isFizzBuzz(number){
   }
 
 }
-console.log(isFizzBuzz(32))
+//console.log(isFizzBuzz(32))
 //-------------------------------------------------------
 
 function orderString(string){
   let orderedarr = []
   let arr = string.split(' ')
-  console.log(arr)
+  //console.log(arr)
   for(var i = 1;i<10;i++){
     arr.forEach(function(each){
         if(each.includes(i)){
@@ -118,7 +118,7 @@ function orderString(string){
         }
     })
   }
-  console.log(orderedarr.join(' '))
+  //console.log(orderedarr.join(' '))
    return orderedarr.join(' ')
 }
 orderString("4of Fo1r pe6ople g3ood th5e the2")
@@ -131,7 +131,7 @@ function pickMyFriends(arr){
      }
 
   })
-  console.log(filteredarr)
+  //console.log(filteredarr)
   return filteredarr
 }
 pickMyFriends(friends)
@@ -144,11 +144,11 @@ for(var i=1;i<rowNo;i++){
 counter2.push(counter)
 counter = counter -2
 
-console.log(counter2)
+//console.log(counter2)
 
 }
 let firstnoinrow = counter2.reduce((a,b)=>a+b,0)+1
-console.log(firstnoinrow)
+//console.log(firstnoinrow)
 
 let arr = []
 
@@ -157,8 +157,8 @@ for(var i=1;i<rowNo+1;i++){
 arr.push(firstnoinrow)
 firstnoinrow += 2
 }
-console.log(arr)
-console.log(arr.reduce((a,b)=>a+b,0))
+//console.log(arr)
+//console.log(arr.reduce((a,b)=>a+b,0))
 return arr.reduce((a,b)=>a+b,0)
 }
 rowSumOddNumbers(5)
@@ -213,7 +213,7 @@ function findOdd(A) {
  }
 
  if(arr.length % 2 ==0){
-   console.log(A[j])
+   //console.log(A[j])
    return A[j]
  }
 }
@@ -286,7 +286,7 @@ calculateYears(1000,0.01625,0.18,1200)
 var s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
 function printerError(s) {
     let errorArr= s.match(/[n-z]/g)
-    console.log(errorArr)
+    //console.log(errorArr)
     return errorArr.length+'/'+s.length
 }
 printerError(s)
@@ -323,7 +323,7 @@ function isPrime(num) {
    else {return num + ' is prime'}
 }
 }
-console.log(isPrime(-5))
+//console.log(isPrime(-5))
 //---------------------------------------------------------
 let removeIndex = [1,7,0,4]
 let products = []
@@ -331,7 +331,67 @@ for(let i=0; i< removeIndex.length; i++){
   let ri = removeIndex.filter((each)=>{
     return removeIndex[i]!==each
   })
-  console.log(ri)
+  //console.log(ri)
   products.push(ri.reduce((a,b)=> a*b,1))
-  console.log(products)
+  //console.log(products)
 }
+function validBraces(braces){
+  let objToCheck = {};
+  let openBraces = ['{','(', '['];
+  let closedBraces = ['}',')',']'];
+  let count = 0;
+  for(let i = 0; i < braces.length; i++){
+    if( openBraces.indexOf(braces[i]) !== -1 ){
+      objToCheck[count] = braces[i];
+      count++;
+    } else if( closedBraces.indexOf(braces[i]) !== -1 ){
+      if(count === 0) { return false; }
+      let index = closedBraces.indexOf(braces[i]);
+      if(objToCheck[count-1] === openBraces[index] ){
+        count --;
+      } else {
+        return false;
+      }
+    }
+  }
+  return count === 0;
+}
+//-----------------------------
+function markdownParser (markdown) {
+  let markdown2 = markdown.trim()
+  console.log(markdown2)
+  if(markdown2 == " " || markdown2 == null || markdown2 === undefined){
+       return markdown2;
+     }
+  if(markdown2.indexOf(' ') == -1)
+     {
+       return markdown2;
+     }
+  if(markdown2[0] !== '#'){
+    return markdown2;
+  }
+  if(markdown2.slice(0,6) == '######' && markdown2.slice(6,7)==' '){
+    return '<h6>'+ markdown2.slice(7)+'</h6>'
+  } else if(markdown2.slice(0,5) == '#####' && markdown2.slice(5,6)==' '){
+    return '<h5>'+ markdown2.slice(6)+'</h5>'
+  }else if(markdown2.slice(0,4) == '####' && markdown2.slice(4,5)==' '){
+    return '<h4>'+ markdown2.slice(5)+'</h4>'
+  }else if(markdown2.slice(0,3) == '###' && markdown2.slice(3,4)==' '){
+    return '<h3>'+ markdown2.slice(4)+'</h3>'
+  }else if(markdown2.slice(0,2) == '##' && markdown2.slice(2,3)==' '){
+    return '<h2>'+ markdown2.slice(3)+'</h2>'
+  }else if(markdown2.slice(0,1) == '#' && markdown2.slice(1,2)==' '){
+    return '<h1>'+ markdown2.slice(2)+'</h1>'
+  } else{
+  return markdown2
+  }
+}
+console.log(markdownParser("##          Lost In Space"))
+//-------------Python-------------------------------
+// def first_non_repeating_letter(str):
+//     letter_list = [i.lower() for i in str]
+    
+//     for i in range(len(letter_list)):
+//         if letter_list.count(letter_list[i]) == 1:
+//             return str[i]
+//     return ""
