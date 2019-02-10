@@ -344,9 +344,11 @@ function validBraces(braces){
     if( openBraces.indexOf(braces[i]) !== -1 ){
       objToCheck[count] = braces[i];
       count++;
+      console.log(objToCheck)
     } else if( closedBraces.indexOf(braces[i]) !== -1 ){
       if(count === 0) { return false; }
       let index = closedBraces.indexOf(braces[i]);
+      console.log(index)
       if(objToCheck[count-1] === openBraces[index] ){
         count --;
       } else {
@@ -356,6 +358,7 @@ function validBraces(braces){
   }
   return count === 0;
 }
+console.log(validBraces('([]){}'))
 //-----------------------------
 function markdownParser (markdown) {
   let markdown2 = markdown.trim()
@@ -371,27 +374,19 @@ function markdownParser (markdown) {
     return markdown2;
   }
   if(markdown2.slice(0,6) == '######' && markdown2.slice(6,7)==' '){
-    return '<h6>'+ markdown2.slice(7)+'</h6>'
+    return '<h6>'+ markdown2.slice(7).trim()+'</h6>'
   } else if(markdown2.slice(0,5) == '#####' && markdown2.slice(5,6)==' '){
-    return '<h5>'+ markdown2.slice(6)+'</h5>'
+    return '<h5>'+ markdown2.slice(6).trim()+'</h5>'
   }else if(markdown2.slice(0,4) == '####' && markdown2.slice(4,5)==' '){
-    return '<h4>'+ markdown2.slice(5)+'</h4>'
+    return '<h4>'+ markdown2.slice(5).trim()+'</h4>'
   }else if(markdown2.slice(0,3) == '###' && markdown2.slice(3,4)==' '){
-    return '<h3>'+ markdown2.slice(4)+'</h3>'
+    return '<h3>'+ markdown2.slice(4).trim()+'</h3>'
   }else if(markdown2.slice(0,2) == '##' && markdown2.slice(2,3)==' '){
-    return '<h2>'+ markdown2.slice(3)+'</h2>'
+    return '<h2>'+ markdown2.slice(3).trim()+'</h2>'
   }else if(markdown2.slice(0,1) == '#' && markdown2.slice(1,2)==' '){
-    return '<h1>'+ markdown2.slice(2)+'</h1>'
+    return '<h1>'+ markdown2.slice(2).trim()+'</h1>'
   } else{
   return markdown2
   }
 }
 console.log(markdownParser("##          Lost In Space"))
-//-------------Python-------------------------------
-// def first_non_repeating_letter(str):
-//     letter_list = [i.lower() for i in str]
-    
-//     for i in range(len(letter_list)):
-//         if letter_list.count(letter_list[i]) == 1:
-//             return str[i]
-//     return ""
