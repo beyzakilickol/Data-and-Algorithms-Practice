@@ -409,11 +409,7 @@ function factorial(n) {
 }
 function first_non_repeating_letter(str){
   let strArr = str.toLowerCase().split('')
-  console.log(strArr)
-  
   for(let i=0; i<strArr.length; i++){
-    console.log(strArr.slice(0,i))
-    console.log(strArr.slice(i+1))
     if(strArr.slice(i+1).includes(strArr[i]) == false && strArr.slice(0,i).includes(strArr[i])==false){
        return strArr[i]
     } 
