@@ -390,3 +390,20 @@ function markdownParser (markdown) {
   }
 }
 console.log(markdownParser("##          Lost In Space"))
+//----------------------------------------------------
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+// Examples:
+
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+function solution(str, ending){
+  return new RegExp(ending+"$", "i").test(str);
+}
+//-------------------------------------------------
+// Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type ArgumentOutOfRangeException (C#) or IllegalArgumentException (Java) or RangeException (PHP) or throw a RangeError (JavaScript).
+function factorial(n) {
+  if (n < 0 || n > 12)
+    throw new RangeError();
+  return n <= 1 ? 1 : n * factorial(n - 1);
+}
